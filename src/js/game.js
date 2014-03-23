@@ -8,8 +8,8 @@
   Game.prototype = {
 
     create: function () {
-      var x = this.game.width / 2
-        , y = this.game.height / 2;
+      var x = this.game.width
+        , y = this.game.height;
 
       this.player = this.add.sprite(x, y, 'player');
       this.player.anchor.setTo(0.5, 0.5);
@@ -31,8 +31,12 @@
       dy = y - cy;
       scale = Math.sqrt(dx * dx + dy * dy) / 100;
 
-      this.player.scale.x = scale * 0.6;
-      this.player.scale.y = scale * 0.6;
+      this.player.scale.x = 0.6+scale * 0.3;
+      this.player.scale.y = 0.6+scale * 0.3;
+
+      //////////////////////////////
+      this.player.x = x;
+      this.player.y = y;
     },
 
     onInputDown: function () {
